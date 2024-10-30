@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Category extends Model
 {
+    use HasFactory;
     const MAX_CATEGORY_LEVEL = 6;
 
     protected $fillable = ['sort_number', 'category_id'];
@@ -44,6 +46,7 @@ class Category extends Model
 
         return $depth + 1;
     }
+
 
     public function canMove(): bool
     {

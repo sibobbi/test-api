@@ -55,7 +55,7 @@ class CategoryService
         return $model;
     }
 
-    public function getLastSortNumberCategory(Category $parentCategory): int
+    private function getLastSortNumberCategory(Category $parentCategory): int
     {
         $maxSortNumber = Category::query()->where('category_id',$parentCategory->id)->orderBy('sort_number', 'desc')->first();
 
@@ -65,7 +65,7 @@ class CategoryService
 
         return 0;
     }
-    public function getLastSortNumberProduct(Category $parentCategory): int
+    private  function getLastSortNumberProduct(Category $parentCategory): int
     {
         $maxSortNumber = Product::query()->where('category_id',$parentCategory->id)->orderBy('sort_number', 'desc')->first();
 
