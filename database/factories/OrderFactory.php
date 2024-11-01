@@ -14,12 +14,11 @@ class OrderFactory extends Factory
     public function definition()
     {
         $randomDays = $this->faker->numberBetween(1, 10);
+
         $date = $this->faker->dateTimeBetween('-0 month', 'now');
 
-// Преобразование в объект Carbon
         $carbonDate = Carbon::instance($date);
 
-// Прибавление одного дня
         $carbonDate->addDays($randomDays);
 
         return [
